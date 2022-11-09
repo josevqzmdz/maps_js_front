@@ -123,7 +123,7 @@
       {
         group: "nodes",
         data: {
-          id: "n0",
+          id: "aquila",
         },
         position: {
           x: 45 + 30,
@@ -133,7 +133,7 @@
       {
         group: "nodes",
         data: {
-          id: "n1",
+          id: "maruata",
         },
         position: {
           x: 127 + 30,
@@ -143,7 +143,7 @@
       {
         group: "nodes",
         data: {
-          id: "n2",
+          id: "lazaro cardenas",
         },
         position: {
           x: 242 + 30,
@@ -153,7 +153,7 @@
       {
         group: "nodes",
         data: {
-          id: "n3",
+          id: "nueva italia",
         },
         position: {
           x: 337 + 30,
@@ -163,7 +163,7 @@
       {
         group: "nodes",
         data: {
-          id: "n4",
+          id: "apatzingan",
         },
         position: {
           x: 245 + 30,
@@ -173,7 +173,7 @@
       {
         group: "nodes",
         data: {
-          id: "n5",
+          id: "tepalcatepec",
         },
         position: {
           x: 149 + 30,
@@ -183,7 +183,7 @@
       {
         group: "nodes",
         data: {
-          id: "n6",
+          id: "uruapan",
         },
         position: {
           x: 315 + 30,
@@ -193,7 +193,7 @@
       {
         group: "nodes",
         data: {
-          id: "n7",
+          id: "los reyes",
         },
         position: {
           x: 251 + 30,
@@ -203,7 +203,7 @@
       {
         group: "nodes",
         data: {
-          id: "n8",
+          id: "sahuayo",
         },
         position: {
           x: 214 + 30,
@@ -213,7 +213,7 @@
       {
         group: "nodes",
         data: {
-          id: "n9",
+          id: "zamora",
         },
         position: {
           x: 321 + 30,
@@ -223,7 +223,7 @@
       {
         group: "nodes",
         data: {
-          id: "n10",
+          id: "zacapu",
         },
         position: {
           x: 426 + 30,
@@ -233,7 +233,7 @@
       {
         group: "nodes",
         data: {
-          id: "n11",
+          id: "patzcuaro",
         },
         position: {
           x: 456 + 30,
@@ -243,7 +243,7 @@
       {
         group: "nodes",
         data: {
-          id: "n12",
+          id: "morelia",
         },
         position: {
           x: 512 + 30,
@@ -253,7 +253,7 @@
       {
         group: "nodes",
         data: {
-          id: "n13",
+          id: "ciudad hidalgo",
         },
         position: {
           x: 617 + 30,
