@@ -27,58 +27,58 @@
 
   const startingEdges = [
     {
-      data: { id: `n0n1`, source: "n0", target: "n1", weight: 2 },
+      data: { id: `n0n1`, source: "aquila", target: "maruata", weight: 2 },
     },
     {
-      data: { id: `n1n2`, source: "n1", target: "n2", weight: 3 },
+      data: { id: `n1n2`, source: "aquila", target: "tepalcatepec", weight: 3 },
     },
     {
-      data: { id: `n2n3`, source: "n2", target: "n3", weight: 5 },
+      data: { id: `n2n3`, source: "maruata", target: "lazaro_cardenas", weight: 5 },
     },
     {
-      data: { id: `n3n4`, source: "n3", target: "n4", weight: 5 },
+      data: { id: `n3n4`, source: "lazaro_cardenas", target: "nueva_italia", weight: 5 },
     },
     {
-      data: { id: `n4n5`, source: "n4", target: "n5", weight: 3 },
+      data: { id: `n4n5`, source: "nueva_italia", target: "apatzingan", weight: 3 },
     },
     {
-      data: { id: `n5n7`, source: "n5", target: "n7", weight: 3 },
+      data: { id: `n5n7`, source: "nueva_italia", target: "patzcuaro", weight: 3 },
     },
     {
-      data: { id: `n7n6`, source: "n7", target: "n6", weight: 3 },
+      data: { id: `n7n6`, source: "apatzingan", target: "tepalcatepec", weight: 3 },
     },
     {
-      data: { id: `n4n6`, source: "n4", target: "n6", weight: 3 },
+      data: { id: `n4n6`, source: "apatzingan", target: "uruapan", weight: 3 },
     },
     {
-      data: { id: `n7n8`, source: "n7", target: "n8", weight: 2 },
+      data: { id: `n7n8`, source: "tepalcatepec", target: "los_reyes", weight: 3 },
     },
     {
-      data: { id: `n8n9`, source: "n8", target: "n9", weight: 3 },
+      data: { id: `n8n9`, source: "los_reyes", target: "sahuayo", weight: 2 },
     },
     {
-      data: { id: `n6n9`, source: "n6", target: "n9", weight: 2 },
+      data: { id: `n6n9`, source: "los_reyes", target: "uruapan", weight: 3 },
     },
     {
-      data: { id: `n3n11`, source: "n3", target: "n11", weight: 3 },
+      data: { id: `n3n11`, source: "uruapan", target: "zamora", weight: 2 },
     },
     {
-      data: { id: `n10n11`, source: "n10", target: "n11", weight: 2 },
+      data: { id: `n10n11`, source: "sahuayo", target: "zamora", weight: 3 },
     },
     {
-      data: { id: `n9n10`, source: "n9", target: "n10", weight: 4 },
+      data: { id: `n9n10`, source: "zamora", target: "zacapu", weight: 4 },
     },
     {
-      data: { id: `n10n12`, source: "n10", target: "n12", weight: 2 },
+      data: { id: `n10n12`, source: "zacapu", target: "patzcuaro", weight: 2 },
     },
     {
-      data: { id: `n11n12`, source: "n11", target: "n12", weight: 2 },
+      data: { id: `n11n12`, source: "zacapu", target: "morelia", weight: 2 },
     },
     {
-      data: { id: `n12n13`, source: "n12", target: "n13", weight: 3 },
+      data: { id: `n12n13`, source: "patzcuaro", target: "morelia", weight: 2 },
     },
     {
-      data: { id: `n0n5`, source: "n0", target: "n5", weight: 3 },
+      data: { id: `n0n5`, source: "morelia", target: "cd_hidalgo", weight: 3 },
     },
   ];
 
@@ -143,7 +143,7 @@
       {
         group: "nodes",
         data: {
-          id: "lazaro cardenas",
+          id: "lazaro_cardenas",
         },
         position: {
           x: 242 + 30,
@@ -153,7 +153,7 @@
       {
         group: "nodes",
         data: {
-          id: "nueva italia",
+          id: "nueva_italia",
         },
         position: {
           x: 337 + 30,
@@ -193,7 +193,7 @@
       {
         group: "nodes",
         data: {
-          id: "los reyes",
+          id: "los_reyes",
         },
         position: {
           x: 251 + 30,
@@ -253,7 +253,7 @@
       {
         group: "nodes",
         data: {
-          id: "ciudad hidalgo",
+          id: "cd_hidalgo",
         },
         position: {
           x: 617 + 30,
@@ -312,6 +312,21 @@
       isDisabled = false;
     }, 5000);
   };
+
+   // https://stackoverflow.com/questions/69970474/cannot-fetch-data-from-localhost-using-sveltekit
+  export async function recibirJson({ fetch }){
+    const rest = await fetch("https://localhost:7117/swagger/index.html");
+    const ciudades = await res.json();
+    if (res.ok){
+      return { props: { ciudades: ciudades }};
+    }
+    return {
+      status: res.status,
+      error: new Error()
+    };
+  }
+
+  export let ciudades = [];
 </script>
 
 <main class="w-screen h-screen flex flex-col">
@@ -345,9 +360,12 @@
     <button
       class="px-4 py-2 bg-blue-600 font-bold text-white rounded-lg"
       disabled={isDisabled}
-      type="submit">Buscar</button
-    >
+      type="submit">Buscar</button>
   </form>
+
+  <div>
+    <p>{#each ciudades as ciudad} {ciudad.cities}{/each}</p>
+  </div>
 </main>
 
 <style>
